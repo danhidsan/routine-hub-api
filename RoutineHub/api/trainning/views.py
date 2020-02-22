@@ -3,23 +3,22 @@ from flask_restful import Api
 from marshmallow import ValidationError
 
 from RoutineHub.extensions import apispec
-from RoutineHub.api.resources import UserResource, UserList
-from RoutineHub.api.resources.user import UserSchema
+from RoutineHub.api.trainning.resources.routine import RoutineResource, RoutineList, RoutineSchema
 
 
-blueprint = Blueprint("api", __name__, url_prefix="/api/v1")
-api = Api(blueprint)
+blueprint = Blueprint("training", __name__, url_prefix="/api/training")
+training = Api(blueprint)
 
-
-api.add_resource(UserResource, "/users/<int:user_id>")
-api.add_resource(UserList, "/users")
+# Routine
+training.add_resource(RoutineResource, "/routine/<int:routine_id>")
+training.add_resource(RoutineList, "/routine")
 
 
 @blueprint.before_app_first_request
 def register_views():
-    apispec.spec.components.schema("UserSchema", schema=UserSchema)
-    apispec.spec.path(view=UserResource, app=current_app)
-    apispec.spec.path(view=UserList, app=current_app)
+    apispec.spec.components.schema("RoutineSchema", schema=RoutineSchema)
+    apispec.spec.path(view=RoutineResource, app=current_app)
+    apispec.spec.path(view=RoutineList, app=current_app)
 
 
 @blueprint.errorhandler(ValidationError)

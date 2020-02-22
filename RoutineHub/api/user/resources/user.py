@@ -166,4 +166,6 @@ class UserList(Resource):
         db.session.add(user)
         db.session.commit()
 
-        return {"msg": "user created", "user": schema.dump(user)}, 201
+        return {"msg": "user created", "user": schema.dump(user)}
+
+

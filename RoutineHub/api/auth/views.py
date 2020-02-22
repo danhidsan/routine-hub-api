@@ -10,10 +10,10 @@ from flask_jwt_extended import (
 
 from RoutineHub.models import User
 from RoutineHub.extensions import pwd_context, jwt, apispec
-from RoutineHub.auth.helpers import revoke_token, is_token_revoked, add_token_to_database
+from RoutineHub.api.auth.helpers import revoke_token, is_token_revoked, add_token_to_database
 
 
-blueprint = Blueprint("auth", __name__, url_prefix="/auth")
+blueprint = Blueprint("auth", __name__, url_prefix="/api/auth")
 
 
 @blueprint.route("/login", methods=["POST"])

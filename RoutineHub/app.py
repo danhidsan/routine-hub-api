@@ -1,6 +1,6 @@
 from flask import Flask
 
-from RoutineHub import auth, api
+from RoutineHub import api
 from RoutineHub.extensions import db, jwt, migrate, apispec
 
 
@@ -53,5 +53,6 @@ def configure_apispec(app):
 def register_blueprints(app):
     """register all blueprints for application
     """
-    app.register_blueprint(auth.views.blueprint)
-    app.register_blueprint(api.views.blueprint)
+    app.register_blueprint(api.auth.views.blueprint)
+    app.register_blueprint(api.user.views.blueprint)
+    app.register_blueprint(api.trainning.views.blueprint)

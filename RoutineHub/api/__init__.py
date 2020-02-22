@@ -1,3 +1,3 @@
-from RoutineHub.api import views
-
-__all__ = ["views"]
+import RoutineHub.api.auth
+import RoutineHub.api.user
+import RoutineHub.api.trainning

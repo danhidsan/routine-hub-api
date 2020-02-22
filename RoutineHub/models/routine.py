@@ -26,17 +26,17 @@ class Routine(db.Model):
     title = db.Column(db.String(180), nullable=False)
 
     goal = db.Column(db.String(180), nullable=False)
-    
+
     level = db.Column(db.Enum(LevelEnum), nullable=False)
-    
+
     duration = db.Column(db.Integer, nullable=False)
-    
+
     duration_type = db.Column(db.Enum(DurationTypeEnum), nullable=False)
-    
+
     gender = db.Column(db.Enum(GenderEnum), nullable=False)
-    
+
     created_date = db.Column(db.DateTime, default=datetime.datetime.utcnow)
-    
+
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
 
     def __init__(self, **kwargs):
