@@ -56,3 +56,4 @@ def register_blueprints(app):
     app.register_blueprint(api.auth.views.blueprint)
     app.register_blueprint(api.user.views.blueprint)
     app.register_blueprint(api.trainning.views.blueprint)
+    app.register_blueprint(api.schedule.views.blueprint)
