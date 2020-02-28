@@ -9,7 +9,11 @@ class User(CommonModel, db.Model):
     email = db.Column(db.String(80), unique=True, nullable=False)
     password = db.Column(db.String(255), nullable=False)
     active = db.Column(db.Boolean, default=True)
+
+    # relationships
     routines = db.relationship('Routine', backref='user', lazy=True)
+    workouts = db.relationship('Workout', backref='user', lazy=True)
+    exercises = db.relationship('Exercise', backref='user', lazy=True)
 
     def __init__(self, **kwargs):
         super(User, self).__init__(**kwargs)
