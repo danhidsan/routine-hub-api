@@ -4,9 +4,12 @@ from RoutineHub.commons.model import CommonModel
 class Schedule(CommonModel, db.Model):
 
     start_date = db.Column(db.DateTime)
-    end_date = db.Column(db.DateTime)
-    routine_id = db.Column(db.Integer, db.ForeignKey('routine.id'), nullable=False)
+    end_date = db.Column(db.DateTime, nullable=True)
+
+    # Relationships
+    routine_id = db.Column(db.Integer, db.ForeignKey('routine.id'), nullable=True)
     workout_id = db.Column(db.Integer, db.ForeignKey('workout.id'), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
 
 
     def __init__(self, **kwargs):
@@ -14,4 +17,3 @@ class Schedule(CommonModel, db.Model):
 
     def __repr__(self):
         return f"<Schedule {self.start_date}-{self.end_date}>"
-

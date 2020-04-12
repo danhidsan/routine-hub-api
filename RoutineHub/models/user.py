@@ -14,6 +14,7 @@ class User(CommonModel, db.Model):
     routines = db.relationship('Routine', backref='user', lazy=True)
     workouts = db.relationship('Workout', backref='user', lazy=True)
     exercises = db.relationship('Exercise', backref='user', lazy=True)
+    schedules = db.relationship('Schedule', backref='user', lazy=True)
 
     def __init__(self, **kwargs):
         super(User, self).__init__(**kwargs)

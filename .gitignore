@@ -90,3 +90,6 @@ ENV/
 
 # SQLite
 db/
+
+#vscode
+.vscode/
