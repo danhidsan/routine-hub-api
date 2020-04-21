@@ -13,7 +13,7 @@ class Exercise(CommonModel, db.Model):
     reps = db.Column(db.PickleType) # pickle python array with reps
     cadence = db.Column(db.Integer)
     set_seconds = db.Column(db.Integer)
-    break_seconds = db.Column(db.Integer)
+    rest_seconds = db.Column(db.Integer)
     min_reps_interval = db.Column(db.Integer)
     max_reps_interval = db.Column(db.Integer)
 

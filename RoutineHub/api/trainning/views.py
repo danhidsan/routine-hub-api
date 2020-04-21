@@ -4,7 +4,7 @@ from marshmallow import ValidationError
 
 from RoutineHub.extensions import apispec
 from RoutineHub.api.trainning.resources.routine import RoutineResource, RoutineList, RoutineSchema
-from RoutineHub.api.trainning.resources.workout import WorkoutList
+from RoutineHub.api.trainning.resources.workout import WorkoutList, WorkoutResource
 
 
 blueprint = Blueprint("training", __name__, url_prefix="/api/training")
@@ -15,6 +15,7 @@ training.add_resource(RoutineResource, "/routine/<int:routine_id>")
 training.add_resource(RoutineList, "/routine")
 
 # Workout
+training.add_resource(WorkoutResource, "/workout/<int:workout_id>")
 training.add_resource(WorkoutList, "/workout")
 
 

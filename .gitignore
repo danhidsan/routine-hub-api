@@ -91,5 +91,6 @@ ENV/
 # SQLite
 db/
 
-#vscode
+#IDEs
 .vscode/
+.idea/

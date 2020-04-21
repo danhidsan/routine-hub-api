@@ -4,6 +4,11 @@ from dateutil.relativedelta import relativedelta
 from RoutineHub.models.schedule import Schedule
 from RoutineHub.models.workout import Workout
 
+
+def get_workout(workout_id, current_user):
+   workout = Workout.query.get(workout_id)
+   return workout
+
 def get_workouts(request, current_user):
     filters = set(('start_date', 'end_date'))
     args = set(request.args.keys())
